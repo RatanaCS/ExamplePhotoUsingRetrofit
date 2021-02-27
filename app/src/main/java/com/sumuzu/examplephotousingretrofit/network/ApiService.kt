@@ -19,15 +19,16 @@ interface ApiService {
                  @Part("suplier") sup : RequestBody,
                  @Part("jumlah") stock : RequestBody,
                  @Part("harga") price : RequestBody,
-                 @Part file : MultipartBody.Part): Single<ResponseUploadPhoto>
-
+                 @Part file : MultipartBody.Part
+    ): Single<ResponseUploadPhoto>
 
     @FormUrlEncoded
     @POST("insert.php")
     fun postDataNoImag(@Field("nama") name : String,
-                       @Field("jenis") type : RequestBody,
-                       @Part("suplier") sup : RequestBody,
-                       @Part("jumlah") stock : RequestBody,
-                       @Part("harga") price : RequestBody):Single<ResponseUploadPhoto>
+                       @Field("jenis") type : String,
+                       @Field("suplier") sup : String,
+                       @Field("jumlah") stock : String,
+                       @Field("harga") price : String
+    ):Single<ResponseUploadPhoto>
 
 }
